@@ -17,12 +17,12 @@ dom.cartList.addEventListener('click', event => {
   }
 })
 
-dom.checkoutBtn.addEventListener('click', () => {
-  removeAll(dom)
-  dom.userMessage.textContent = 'Your order has been sent for processing.'
-  dom.checkoutBtn.classList.add('visually-hidden')
-  dom.cartTotal.classList.add('visually-hidden')
-})
+// dom.checkoutBtn.addEventListener('click', () => {
+//   removeAll(dom)
+//   dom.userMessage.textContent = 'Your order has been sent for processing.'
+//   dom.checkoutBtn.classList.add('visually-hidden')
+//   dom.cartTotal.classList.add('visually-hidden')
+// })
 
 async function init() {
   loadCart(dom)
