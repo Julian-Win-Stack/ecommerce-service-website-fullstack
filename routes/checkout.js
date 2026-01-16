@@ -5,7 +5,7 @@ import { createCheckoutSession } from '../controllers/checkoutController.js';
 
 export const checkoutRouter = express.Router();
 
-checkoutRouter.post('/create-session', createCheckoutSession);
+checkoutRouter.post('/create-session',requireAuth, createCheckoutSession);
 
 
 
