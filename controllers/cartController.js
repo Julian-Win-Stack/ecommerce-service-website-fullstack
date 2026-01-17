@@ -64,13 +64,5 @@ export async function deleteItem(req, res) {
   
 }
 
-export async function deleteAll(req, res) {
 
-  const db = await getDBConnection()
-
-  await db.run('DELETE FROM cart_items WHERE user_id = ?', [req.session.userId])
-
-  res.status(204).send()
-  
-}
 

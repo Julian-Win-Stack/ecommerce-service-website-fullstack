@@ -29,8 +29,8 @@ export async function createCheckoutSession(req,res) {
         const session = await stripe.checkout.sessions.create({
             mode: 'payment',
             line_items,
-            success_url: `${process.env.CLIENT_URL}/checkout/success`,
-            cancel_url: `${process.env.CLIENT_URL}/checkout/cancel`,
+            success_url: `${process.env.CLIENT_URL}/api/checkout/success`,
+            cancel_url: `${process.env.CLIENT_URL}/api/checkout/cancel`,
         });
         return res.json({url: session.url});
 
@@ -39,3 +39,4 @@ export async function createCheckoutSession(req,res) {
         return res.status(500).json({error: 'Fetch failed. Please try again.'});
     }
 }
+

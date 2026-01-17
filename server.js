@@ -1,31 +1,22 @@
 import express from 'express'
 import dotenv from "dotenv";
-dotenv.config();
+import { fileURLToPath } from 'url';
+import path from 'path';
+import session from 'express-session'
 import { productsRouter } from './routes/products.js'
 import { authRouter } from './routes/auth.js'
 import { meRouter } from './routes/me.js'
 import { cartRouter } from './routes/cart.js' 
 import { checkoutRouter } from './routes/checkout.js'; 
-import session from 'express-session'
-import path from 'path';
-import { fileURLToPath } from 'url';
+dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express() 
 const PORT = 8000
 const secret = process.env.SPIRAL_SESSION_SECRET
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('/checkout/success', (req,res)=>{
-    res.sendFile(path.join(__dirname, 'public', 'paymentSuccess.html'));
-})
-
-app.get('/checkout/cancel', (req,res)=>{
-    res.sendFile(path.join(__dirname, 'public', 'paymentCancel.html'));
-})
 
 app.use(express.json()) 
 
