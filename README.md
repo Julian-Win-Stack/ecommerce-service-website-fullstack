@@ -31,11 +31,6 @@ To understand backend fundamentals and real payment flows — including session 
 - On success, the backend clears the user’s cart
 - On cancel, the cart remains unchanged
 
-Environment variables:
-SPIRAL_SESSION_SECRET=your_session_secret
-STRIPE_SECRET_KEY=your_stripe_secret_key
-CLIENT_URL=http://localhost:8000
-
 ## Run Locally
 ```bash
 npm install
